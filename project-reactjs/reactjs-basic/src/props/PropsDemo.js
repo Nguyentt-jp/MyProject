@@ -19,9 +19,7 @@ export default class PropsTable extends Component{
         }];
 
         return(
-            <div>
-                <Table employeesData = {employeesData}/>
-            </div>
+           <Table employeesData = {employeesData}/>                       
         )
     }
 }
