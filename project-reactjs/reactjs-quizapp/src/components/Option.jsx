@@ -1,8 +1,8 @@
 import { Component } from "react";
 
-export default class Option extends Component{
+export default class Options extends Component{
     render(){
-        const {options, selectOption, onOptinChange} = this.props;
+        const {options, selectOption, onOptionChange} = this.props;
         return(
             <div className="options">
                 {options.map((option, index) => {
@@ -13,7 +13,7 @@ export default class Option extends Component{
                                 name="option"
                                 value={option}
                                 checked={selectOption === option}
-                                onChange={onOptinChange}
+                                onChange={onOptionChange}
                                 className="form-check-input"/>
                             <label className="form-check-label">{option}</label>
                         </div>

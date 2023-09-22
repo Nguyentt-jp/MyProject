@@ -29,9 +29,9 @@ export default class App extends Component{
     }
 
     checkAnswer = () => {
-        const {quesBank, currentQues, selectOption, score} = this.state; 
-        if(selectOption === quesBank[currentQues.answer]){
-            this.setState((prevState) => ({score: prevState + 1}))
+        const {quesBank, currentQues, selectOption} = this.state; 
+        if(selectOption === quesBank[currentQues].answer){
+            this.setState((prevState) => ({score: prevState.score + 1}))
         };
     }
 
@@ -52,16 +52,17 @@ export default class App extends Component{
             <div className='App d-flex flex-column align-items-center justify-content-center'>
                 <h1 className='app-title'>QUIZ APP</h1>
                 {!quizzEnd ? (
-                    <Question question={quesBank[currentQues]}
-                    selectOption={selectOption}
-                    onOptionChange={this.handleOptionChange}
-                    onSubmit={this.handleFormSubmit}>
+                    <Question 
+                        question={quesBank[currentQues]}
+                        selectOption={selectOption}
+                        onOptionChange={this.handleOptionChange}
+                        onSubmit={this.handleFormSubmit}>
                     </Question>
                 ) : (
                     <Score 
-                    score={score}
-                    onNextQuestion={this.handleNextQuestion}
-                    className="score">
+                        score={score}
+                        onNextQuestion={this.handleNextQuestion}
+                        className="score">
                     </Score>
                 )}
             </div>
